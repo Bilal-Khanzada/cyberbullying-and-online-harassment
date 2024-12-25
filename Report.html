@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Cyberbullying</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Report.html">Report</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="form-section container">
+            <h2>Submit a Report</h2>
+            <form action="#" method="post">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+
+                <label for="incident">Describe the Incident:</label>
+                <textarea id="incident" name="incident" rows="6" placeholder="Provide details of the incident" required></textarea>
+
+                <label for="platform">Platform Involved:</label>
+                <select id="platform" name="platform" required>
+                    <option value="">--Select a Platform--</option>
+                    <option value="social_media">Social Media</option>
+                    <option value="email">Email</option>
+                    <option value="messaging_app">Messaging App</option>
+                    <option value="other">Other</option>
+                </select>
+
+
+                
+
+                <button type="submit">Submit Report</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Cyberbullying Awareness. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('reportForm').addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent the default form submission
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const incident = document.getElementById('incident').value;
+            const platform = document.getElementById('platform').value;
+
+            let emailBody = `Name: ${name}\nEmail: ${email}\nPlatform: ${platform}\nIncident Details:\n${incident}`;
+
+            const mailtoLink = `mailto:bilalkzr108@gmail.com?subject=New Incident Report&body=${encodeURIComponent(emailBody)}`;
+
+            window.location.href = mailtoLink;
+        });
+    </script>
+</body>
+</html>
